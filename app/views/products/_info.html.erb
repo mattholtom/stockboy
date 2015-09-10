@@ -5,9 +5,4 @@
 <%= @product_presenter.price %>
 
 <%= @product_presenter.end_of_sale %>
-
-<% if @cart.items > 0 %>
-  <div data-alert class="alert-box info radius">
-    There are <%= @cart.items %> items in your cart.
-  </div>
-<% end %>
+<%= @product_presenter.items_in_cart %>

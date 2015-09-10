@@ -39,6 +39,14 @@ class ProductPresenter
     end
   end
 
+  def items_in_cart
+    if @cart.items > 0
+      @h.content_tag(:div, class: "alert-box info radius") do
+        "There are #{@cart.items} items in your cart."
+      end
+    end
+  end
+
   private
   def sale_end_distance
     @h.distance_of_time_in_words(@sale.end_date, Time.now)
