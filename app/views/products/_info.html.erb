@@ -2,14 +2,9 @@
 <p><%= @product_presenter.description %></p>
 
 <%= @product_presenter.cart_action_button %>
-
 <%= @product_presenter.price %>
 
-<% if @sale.on_sale?(@product) && !@cart.in_cart?(@product) %>
-  <div data-alert class="alert-box success radius">
-    This price is available for <%= distance_of_time_in_words(@sale.end_date, Time.now) %>.
-  </div>
-<% end %>
+<%= @product_presenter.end_of_sale %>
 
 <% if @cart.items > 0 %>
   <div data-alert class="alert-box info radius">

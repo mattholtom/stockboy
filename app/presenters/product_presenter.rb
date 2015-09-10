@@ -31,7 +31,19 @@ class ProductPresenter
     end
   end
 
+  def end_of_sale
+    if @sale.on_sale?(@product) && !@cart.in_cart?(@product)
+      @h.content_tag(:div, class: "alert-box success radius") do
+        "This price is available for #{sale_end_distance}."
+      end
+    end
+  end
+
   private
+  def sale_end_distance
+    @h.distance_of_time_in_words(@sale.end_date, Time.now)
+  end
+
   def full_price
     @h.number_to_currency(@product.price)
   end
@@ -39,5 +51,4 @@ class ProductPresenter
   def sale_price
     @h.number_to_currency(@product.price - @product.price * @sale.percentage)
   end
-
 end
