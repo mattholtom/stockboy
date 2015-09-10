@@ -1,24 +1,4 @@
 <div class="row">
-  <div class="large-3 columns">
-    <h1><img src="http://lorempixel.com/400/100/abstract/1"></h1>
-  </div>
-
-  <div class="large-9 columns right">
-    <form>
-      <div class="row collapse">
-        <div class="large-10 small-8 columns">
-          <input type="text"/>
-        </div>
-
-        <div class="large-2 small-4 columns">
-          <a href="#" class="postfix button expand">Search</a>
-        </div>
-      </div>
-    </form>
-  </div>
-</div>
-
-<div class="row">
   <hr>
   <div class="large-2 columns">
     <img src="http://lorempixel.com/400/300/technics/1">
@@ -33,17 +13,7 @@
     <%= image_tag @widget.image %>
     <img src="">
   </div>
-  <div class="large-5 columns">
-    <h4><%= @widget.name %></h4>
-    <p><%= @widget.description%></p>
-
-    <div class="panel">
-      <h5>Take some Action</h5>
-      <h6 class="subheader">You know you want these, make it happen!</h6>
-      <a href="#" class="small button">Add to Cart</a>
-    </div>
-
-  </div>
+  <%= render partial: 'info' %>
 </div>
 
 <div class="row">
