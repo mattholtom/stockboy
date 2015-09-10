@@ -4,6 +4,7 @@ class ProductsController < ApplicationController
     @product = Product.find(params[:id])
     @cart = Cart.new
     @sale = Sale.new
+    @product_presenter = ProductPresenter.new(@product)
   end
 
 end

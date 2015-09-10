@@ -1,5 +1,5 @@
-<h4><%= @product.name %></h4>
-<p><%= @product.description%></p>
+<h4><%= @product_presenter.name %></h4>
+<p><%= @product_presenter.description %></p>
 
 <% if !@cart.in_cart?(@product) %>
   <a href="#" class="small button">Add to Cart</a>
