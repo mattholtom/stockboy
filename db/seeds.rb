@@ -7,14 +7,13 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 #
 #
-Widget.destroy_all
+Product.destroy_all
 
 20.times.each do
-  Widget.create({
+  Product.create({
     name: "Ergonomic Copper Computer",
     description: "Officia voluptas a maiores aut. Esse et at voluptate et illum illo qui.",
     price: 93.03,
-    amount: Faker::Number.between(2,34),
     image: "http://lorempixel.com/400/500/technics/3"
   })
 end

@@ -1,22 +1,22 @@
 <!-- Info partial for right hand box -->
 
-<h4><%= @widget.name %></h4>
-<p><%= @widget.description%></p>
+<h4><%= @product.name %></h4>
+<p><%= @product.description%></p>
 
-<% if !@cart.in_cart?(@widget) %>
+<% if !@cart.in_cart?(@product) %>
   <a href="#" class="small button">Add to Cart</a>
 <% else %>
   <a href="#" class="small button disabled">Already in Cart</a>
 <% end %>
 
-<% if @sale.on_sale?(@widget) %>
-  <h4 class="widget-price full-price right"><%= number_to_currency(@widget.price) %></h4>
-  <h4 class="widget-price sale-price"><%= number_to_currency(@widget.price - @widget.price * @sale.percentage) %></h4>
+<% if @sale.on_sale?(@product) %>
+  <h4 class="widget-price full-price right"><%= number_to_currency(@product.price) %></h4>
+  <h4 class="widget-price sale-price"><%= number_to_currency(@product.price - @product.price * @sale.percentage) %></h4>
 <% else %>
-  <h4 class="widget-price right"><%= number_to_currency(@widget.price) %></h4>
+  <h4 class="widget-price right"><%= number_to_currency(@product.price) %></h4>
 <% end %>
 
-<% if @sale.on_sale?(@widget) && !@cart.in_cart?(@widget) %>
+<% if @sale.on_sale?(@product) && !@cart.in_cart?(@product) %>
   <div data-alert class="alert-box success radius">
     This price is available for <%= distance_of_time_in_words(@sale.end_date, Time.now) %>.
   </div>

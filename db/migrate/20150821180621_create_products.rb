@@ -1,10 +1,10 @@
-class CreateWidgets < ActiveRecord::Migration
+class CreateProducts < ActiveRecord::Migration
   def change
-    create_table :widgets do |t|
+    create_table :products do |t|
       t.string :name
       t.text :description
       t.decimal :price
-      t.integer :amount
+      t.string :image
 
       t.timestamps null: false
     end

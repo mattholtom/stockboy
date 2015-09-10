@@ -1,6 +1,6 @@
-class WidgetsController < ApplicationController
+class ProductsController < ApplicationController
   def show
-    @widget = Widget.find(params[:id])
+    @product = Product.find(params[:id])
     @cart = Cart.new
     @sale = Sale.new
   end
