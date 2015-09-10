@@ -4,3 +4,16 @@
 .top20 {
   margin-top: 20px;
 }
+
+.widget-price {
+  display: inline;
+  padding-top: 4px;
+}
+
+.panel h4.sale-price {
+  color: #3a945b;
+}
+
+.panel h4.full-price {
+  text-decoration: line-through;
+}

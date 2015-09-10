@@ -1,18 +1,29 @@
 <!-- Info partial for right hand box -->
 
-<div class="large-5 columns">
-  <h4><%= @widget.name %></h4>
-  <p><%= @widget.description%></p>
+<h4><%= @widget.name %></h4>
+<p><%= @widget.description%></p>
 
-  <div class="panel">
-    <h6 class="subheader">You know you want these, make it happen!</h6>
-    <a href="#" class="small button">Add to Cart</a>
-    <h4 class="widget-price sale-price"><%= @widget.price %></h4>
-    <h6>This price is available until <%= @sale_end_time %></h6>
-    <a href="#">
-      <div class="panel callout radius">
-        <h6><%= @cart_items %> items in your cart</h6>
-      </div>
-    </a>
+<% if !@cart.in_cart?(@widget) %>
+  <a href="#" class="small button">Add to Cart</a>
+<% else %>
+  <a href="#" class="small button disabled">Already in Cart</a>
+<% end %>
+
+<% if @sale.on_sale?(@widget) %>
+  <h4 class="widget-price full-price right"><%= number_to_currency(@widget.price) %></h4>
+  <h4 class="widget-price sale-price"><%= number_to_currency(@widget.price - @widget.price * @sale.percentage) %></h4>
+<% else %>
+  <h4 class="widget-price right"><%= number_to_currency(@widget.price) %></h4>
+<% end %>
+
+<% if @sale.on_sale?(@widget) && !@cart.in_cart?(@widget) %>
+  <div data-alert class="alert-box success radius">
+    This price is available for <%= distance_of_time_in_words(@sale.end_date, Time.now) %>.
   </div>
-</div>
+<% end %>
+
+<% if @cart.items > 0 %>
+  <div data-alert class="alert-box info radius">
+    There are <%= @cart.items %> items in your cart.
+  </div>
+<% end %>
