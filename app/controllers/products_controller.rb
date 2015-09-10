@@ -4,7 +4,7 @@ class ProductsController < ApplicationController
     @product = Product.find(params[:id])
     @cart = Cart.new
     @sale = Sale.new
-    @product_presenter = ProductPresenter.new(@product, @cart, view_context)
+    @product_presenter = ProductPresenter.new(@product, @cart, @sale, view_context)
   end
 
 end

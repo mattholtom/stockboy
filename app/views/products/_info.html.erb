@@ -3,12 +3,7 @@
 
 <%= @product_presenter.cart_action_button %>
 
-<% if @sale.on_sale?(@product) %>
-  <h4 class="price full-price right"><%= number_to_currency(@product.price) %></h4>
-  <h4 class="price sale-price"><%= number_to_currency(@product.price - @product.price * @sale.percentage) %></h4>
-<% else %>
-  <h4 class="price right"><%= number_to_currency(@product.price) %></h4>
-<% end %>
+<%= @product_presenter.price %>
 
 <% if @sale.on_sale?(@product) && !@cart.in_cart?(@product) %>
   <div data-alert class="alert-box success radius">
