@@ -1,11 +1,7 @@
 <h4><%= @product_presenter.name %></h4>
 <p><%= @product_presenter.description %></p>
 
-<% if !@cart.in_cart?(@product) %>
-  <a href="#" class="small button">Add to Cart</a>
-<% else %>
-  <a href="#" class="small button disabled">Already in Cart</a>
-<% end %>
+<%= @product_presenter.cart_action_button %>
 
 <% if @sale.on_sale?(@product) %>
   <h4 class="price full-price right"><%= number_to_currency(@product.price) %></h4>
