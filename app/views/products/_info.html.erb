@@ -1,5 +1,3 @@
-<!-- Info partial for right hand box -->
-
 <h4><%= @product.name %></h4>
 <p><%= @product.description%></p>
 
@@ -10,10 +8,10 @@
 <% end %>
 
 <% if @sale.on_sale?(@product) %>
-  <h4 class="widget-price full-price right"><%= number_to_currency(@product.price) %></h4>
-  <h4 class="widget-price sale-price"><%= number_to_currency(@product.price - @product.price * @sale.percentage) %></h4>
+  <h4 class="price full-price right"><%= number_to_currency(@product.price) %></h4>
+  <h4 class="price sale-price"><%= number_to_currency(@product.price - @product.price * @sale.percentage) %></h4>
 <% else %>
-  <h4 class="widget-price right"><%= number_to_currency(@product.price) %></h4>
+  <h4 class="price right"><%= number_to_currency(@product.price) %></h4>
 <% end %>
 
 <% if @sale.on_sale?(@product) && !@cart.in_cart?(@product) %>
